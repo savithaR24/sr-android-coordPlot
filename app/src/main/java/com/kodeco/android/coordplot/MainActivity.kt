@@ -48,11 +48,6 @@ fun PlotSurface() {
         modifier = Modifier.fillMaxSize(),
         color = Color.White
     ) {
-        // TODO Build out the plot surface
-        //  This should include a Column composable that
-        //  includes a Map, and two MapSlider composable
-        //  (one slider for each axis).
-
         Column(
             modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -101,11 +96,6 @@ private const val CIRCLE_RADIUS = CIRCLE_DIAMETER / 2
 
 @Composable
 fun Map(xPercent: Float, yPercent: Float, modifier: Modifier = Modifier) {
-    // TODO fill out the square map here.
-    //  Create a Box composable with a size of 300.dp
-    //  and then create an inner Box composable
-    //  with a clip shape of CircleShape.
-
     Box(
         modifier
             .background(Color.Blue)
