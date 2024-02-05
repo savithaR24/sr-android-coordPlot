@@ -3,6 +3,7 @@ package com.kodeco.android.coordplot
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -27,6 +28,7 @@ import com.kodeco.android.coordplot.ui.theme.MyApplicationTheme
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.res.painterResource
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -91,26 +93,29 @@ fun SliderY(value: Float = 0.0f, valueChanged: (Float) -> Unit) {
 }
 
 private const val MAX_WIDTH = 300
-private const val CIRCLE_DIAMETER = 12
+private const val CIRCLE_DIAMETER = 28
 private const val CIRCLE_RADIUS = CIRCLE_DIAMETER / 2
 
 @Composable
 fun Map(xPercent: Float, yPercent: Float, modifier: Modifier = Modifier) {
     Box(
         modifier
-            .background(Color.Blue)
+            .background(Color.Cyan)
             .size(300.dp)
     ) {
-        Box(
-            modifier
-                .offset(
-                    (xPercent * MAX_WIDTH - CIRCLE_RADIUS).dp,
-                    (yPercent * MAX_WIDTH - CIRCLE_RADIUS).dp
-                )
-                .clip(shape = CircleShape)
-                .background(Color.Green)
-                .size(CIRCLE_DIAMETER.dp)
-        )
+        val image = painterResource(R.drawable.spaceshuttle)
+        Box(modifier
+            .offset(
+                (xPercent * MAX_WIDTH - CIRCLE_RADIUS).dp,
+                (yPercent * MAX_WIDTH - CIRCLE_RADIUS).dp
+            )
+            .size(CIRCLE_DIAMETER.dp)
+        ) {
+            Image(
+                painter = image,
+                contentDescription = null
+            )
+        }
     }
 }
 
