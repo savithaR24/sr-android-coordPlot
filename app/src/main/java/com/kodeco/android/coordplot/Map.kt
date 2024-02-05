@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -21,7 +20,7 @@ private const val CIRCLE_RADIUS = CIRCLE_DIAMETER / 2
 fun Map(xPercent: Float, yPercent: Float, modifier: Modifier = Modifier) {
     Box(
         modifier
-            .background(Color.Cyan)
+            .background(MaterialTheme.colorScheme.tertiary)
             .size(MAX_WIDTH.dp)
     ) {
         val image = painterResource(R.drawable.spaceshuttle)
