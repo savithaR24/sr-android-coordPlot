@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Coordinate Plotter</string>
-    <string name="x_axis">X Axis = %1$d%%</string>
-    <string name="y_axis">Y Axis = %1$d%%</string>
+    <string name="x_axis">X Axis : %1$d%%</string>
+    <string name="y_axis">Y Axis : %1$d%%</string>
 </resources>
