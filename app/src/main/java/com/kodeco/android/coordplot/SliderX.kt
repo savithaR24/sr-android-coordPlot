@@ -15,9 +15,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun SliderX(value: Float = 0.0f, valueChanged: (Float) -> Unit) {
     Row(
-//                modifier = Modifier.fillMaxSize(),
         verticalAlignment = Alignment.CenterVertically,
-//                horizontalArrangement = Arrangement.Center
     ) {
         Text(
             text = stringResource(R.string.x_axis, (value * 100).toInt()),
