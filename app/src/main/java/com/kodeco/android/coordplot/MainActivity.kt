@@ -27,8 +27,10 @@ import androidx.compose.ui.unit.dp
 import com.kodeco.android.coordplot.ui.theme.MyApplicationTheme
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Text
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,8 +45,10 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun PlotSurface() {
-    var sliderXPosition by remember { mutableFloatStateOf(0.0f) }
-    var sliderYPosition by remember { mutableFloatStateOf(0.0f) }
+    var sliderXPosition by rememberSaveable { mutableFloatStateOf(0.0f) }
+    var sliderYPosition by rememberSaveable { mutableFloatStateOf(0.0f) }
+    var xValue = sliderXPosition * 100
+    var yValue = sliderYPosition * 100
 
     Surface(
         modifier = Modifier.fillMaxSize(),
@@ -56,15 +60,24 @@ fun PlotSurface() {
             verticalArrangement = Arrangement.Center
         ) {
             Text(
-                text = "COORDINATE PLOTTER",
+                text = stringResource(R.string.app_name),
                 modifier = Modifier.padding(40.dp)
             )
             Map(xPercent = sliderXPosition, yPercent = sliderYPosition)
+
+            Text(
+                text = stringResource(R.string.x_axis, xValue.toInt()),
+                modifier = Modifier.padding(10.dp)
+            )
             SliderX(
                 value = sliderXPosition,
                 valueChanged = { value ->
                     sliderXPosition = value
                 }
+            )
+            Text(
+                text = stringResource(R.string.y_axis, yValue.toInt()),
+                modifier = Modifier.padding(10.dp)
             )
             SliderY(
                 value = sliderYPosition,
@@ -80,7 +93,13 @@ fun PlotSurface() {
 fun SliderX(value: Float = 0.0f, valueChanged: (Float) -> Unit) {
     Slider(
         value = value,
-        onValueChange = valueChanged
+        onValueChange = valueChanged,
+//        thumb = {
+//            Image(
+//                painter = painterResource(id = R.drawable.spaceshuttle),
+//                contentDescription = null
+//            )
+//        }
     )
 }
 
@@ -104,12 +123,13 @@ fun Map(xPercent: Float, yPercent: Float, modifier: Modifier = Modifier) {
             .size(300.dp)
     ) {
         val image = painterResource(R.drawable.spaceshuttle)
-        Box(modifier
-            .offset(
-                (xPercent * MAX_WIDTH - CIRCLE_RADIUS).dp,
-                (yPercent * MAX_WIDTH - CIRCLE_RADIUS).dp
-            )
-            .size(CIRCLE_DIAMETER.dp)
+        Box(
+            modifier
+                .offset(
+                    (xPercent * MAX_WIDTH - CIRCLE_RADIUS).dp,
+                    (yPercent * MAX_WIDTH - CIRCLE_RADIUS).dp
+                )
+                .size(CIRCLE_DIAMETER.dp)
         ) {
             Image(
                 painter = image,
