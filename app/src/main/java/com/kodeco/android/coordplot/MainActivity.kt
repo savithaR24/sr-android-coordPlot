@@ -80,35 +80,3 @@ fun PlotSurfacePreview() {
         PlotSurface()
     }
 }
-
-//@Preview(showBackground = true, name = "5-inch Device Portrait", widthDp = 360, heightDp = 640)
-//@Composable
-//fun PlotSurfacePreview() {
-//    MyApplicationTheme {
-//        PlotSurface()
-//    }
-//}
-
-//@Preview(showBackground = true, name = "5-inch Device Landscape", widthDp = 640, heightDp = 360)
-//@Composable
-//fun PlotSurfacePreview() {
-//    MyApplicationTheme {
-//        PlotSurface()
-//    }
-//}
-
-//@Preview(showBackground = true, name = "10-inch Tablet Portrait", widthDp = 600, heightDp = 960)
-//@Composable
-//fun PlotSurfacePreview() {
-//    MyApplicationTheme {
-//        PlotSurface()
-//    }
-//}
-
-//@Preview(showBackground = true, name = "10-inch Tablet Landscape", widthDp = 960, heightDp = 600)
-//@Composable
-//fun PlotSurfacePreview() {
-//    MyApplicationTheme {
-//        PlotSurface()
-//    }
-//}
